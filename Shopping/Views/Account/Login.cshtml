@@ -1,0 +1,35 @@
+﻿@model LoginVm
+@{
+    ViewData["Title"] = "Login";
+}
+<section id="form">
+    <!--form-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="signup-form">
+                    <!--sign up form-->
+                    <h2>New User Login!</h2>
+                    <form asp-action="Login" asp-controller="Account">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <input asp-for="UserName" placeholder="Name" />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input asp-for="Password" type="password" placeholder="Password" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-default">Login</button>
+                        <a asp-action="Register" asp-controller="Account">Tạo Tài Khoản Mới</a>
+                    </form>
+                </div><!--/sign up form-->
+            </div>
+        </div>
+    </div>
+</section><!--/form-->
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
